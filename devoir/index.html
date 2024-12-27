@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Tâches Moderne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Ma Liste de Tâches 🌟</h1>
+        
+        <div class="task-stats">
+            <span>Total : <span id="total-tasks">0</span></span>
+            <span>Terminées : <span id="completed-tasks">0</span></span>
+        </div>
+
+        <div class="task-input">
+            <input type="text" id="task-input" placeholder="Ajouter une tâche...">
+            <button id="add-task" class="btn-primary">Ajouter</button>
+        </div>
+
+        <ul id="task-list"></ul>
+
+        <button id="clear-all" class="btn-danger">Tout Supprimer</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
