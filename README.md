@@ -12,7 +12,7 @@ Une application de gestion de tâches permettant d’ajouter, supprimer, et marq
 - Compteur des tâches (totales et terminées).
 
 ## Déploiement
-- **GitHub** : [Lien du dépôt]()
+- **GitHub** : [Lien du dépôt](https://github.com/Cheikhdiop100/Devoir-de-javascript)
 - **AlwaysData** : [Lien de l'application](https://cheikh.alwaysdata.net/)
 
 
