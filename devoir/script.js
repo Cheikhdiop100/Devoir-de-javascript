@@ -12,7 +12,7 @@ class TodoList {
         this.updateStats();  
     }
 
-    // Initialisation des événements
+    
     initializeEventListeners() {
         document.getElementById('add-task').addEventListener('click', () => this.addTask());
         this.taskInput.addEventListener('keypress', (e) => {
@@ -35,7 +35,7 @@ class TodoList {
         this.updateStats();
     }
 
-    // Affiche une tâche individuelle
+    
     renderTask(task) {
         const li = document.createElement('li');
         li.className = 'task-item';
@@ -44,23 +44,21 @@ class TodoList {
             <button class="delete-btn">Supprimer</button>
         `;
 
-        // Animation d'apparition
         li.style.opacity = 0;
         setTimeout(() => {
             li.style.opacity = 1;
             li.style.transition = 'opacity 0.5s ease-in-out';
         }, 50);
 
-        // Événement pour marquer comme terminé
         li.querySelector('.task-text').addEventListener('click', () => this.toggleTaskCompletion(task, li));
 
-        // Événement pour supprimer la tâche
+
         li.querySelector('.delete-btn').addEventListener('click', () => this.deleteTask(task.id, li));
 
         this.taskList.appendChild(li);
     }
 
-    // Gérer le statut terminé d'une tâche
+    
     toggleTaskCompletion(task, li) {
         task.completed = !task.completed;
         li.querySelector('.task-text').classList.toggle('completed');
@@ -68,7 +66,6 @@ class TodoList {
         this.updateStats();
     }
 
-    // Supprimer une tâche
     deleteTask(taskId, li) {
         // Animation de disparition
         li.style.opacity = 0;
@@ -87,23 +84,23 @@ class TodoList {
         this.tasks.forEach(task => this.renderTask(task));
     }
 
-    // Supprimer toutes les tâches
+    
     clearAllTasks() {
         this.tasks = [];
         this.saveTasks();
         this.updateStats();
 
-        // Animation de disparition de la liste entière
+
         Array.from(this.taskList.children).forEach((li, index) => {
             setTimeout(() => {
                 li.style.opacity = 0;
                 li.style.transition = 'opacity 0.5s ease-in-out';
                 li.remove();
-            }, index * 100); // Décalage entre chaque élément
+            }, index * 100); 
         });
     }
 
-    // Mettre à jour les statistiques
+    
     updateStats() {
         const totalTasks = this.tasks.length;
         const completedTasks = this.tasks.filter(task => task.completed).length;
@@ -112,13 +109,12 @@ class TodoList {
         this.completedTasksSpan.textContent = completedTasks;
     }
 
-    // Sauvegarder les tâches dans le localStorage
+    
     saveTasks() {
         localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
 }
 
-// Initialiser l'application
 document.addEventListener('DOMContentLoaded', () => {
     new TodoList();
 });
